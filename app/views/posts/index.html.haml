@@ -1,6 +1,6 @@
 .well
   .page-header
-    %h1 OSS Club
+    %h1= @posts.first.users_club.club.name
     = link_to "New Post", new_post_path(@posts.first.users_club.club_id), class: "btn btn-info"
   - @posts.reverse.each do |post|
     .status
