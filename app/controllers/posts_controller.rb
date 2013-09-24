@@ -10,7 +10,7 @@ class PostsController < ApplicationController
     else
       if UsersClub.where(club_id: params[:format], model_id: current_model.id).blank?
         club = Model.find(current_model.id).users_clubs.create(club_id: params[:format])
-        club.posts.create(description: "Welcome to the #{Club.find(UsersClub.last.club_id).name}")
+        club.posts.create(description: "<h3> Welcome to the #{Club.find(UsersClub.last.club_id).name} </h3>")
       else
         @posts = Model.find(current_model.id).users_clubs.where(club_id: params[:format]).first.posts
       end
