@@ -1,7 +1,7 @@
 = form_for @post, :html => { :class => 'form-horizontal' } do |f|
   .control-group
     .controls
-      = f.text_field :users_club_id, :class => 'text_field hide', value: params[:format]
+      = f.text_field :users_club_id, :class => 'text_field hide', value: UsersClub.where(club_id: params[:format], model_id: current_model.id).first.id
   .control-group
     = f.label :title, :class => 'control-label'
     .controls

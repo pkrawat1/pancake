@@ -1,7 +1,10 @@
 .well
   .page-header
-    %h1= @posts.first.users_club.club.name
-    = link_to "New Post", new_post_path(@posts.first.users_club.club_id), class: "btn btn-info"
+    - if params[:format].nil?
+      %h1 All Posts
+    - else
+      %h1= Club.find(params[:format]).name 
+    = link_to "New Post", new_post_path(@posts.first.users_club.club_id), class: "btn btn-info" if !params[:format].nil?
   - @posts.reverse.each do |post|
     .status
       %strong= post.users_club.model.email

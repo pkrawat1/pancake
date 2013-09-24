@@ -5,8 +5,8 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     if params[:format].nil?
-      flash[:alert] = "First! Join a club"
-      redirect_to :root
+      @posts = Post.all
+      #@posts = Post.where(users_club_id: Model.find(current_model.id).users_club.id)
     else
       if UsersClub.where(club_id: params[:format], model_id: current_model.id).blank?
         club = Model.find(current_model.id).users_clubs.create(club_id: params[:format])
