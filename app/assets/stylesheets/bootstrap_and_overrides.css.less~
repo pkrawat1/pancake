@@ -37,7 +37,7 @@
 @heroUnitLeadColor: @white;
 
 body{
-    background: url('assets/images/earth.jpg')  no-repeat 50% 10% fixed;
+    background: url('earth.jpg')  no-repeat 50% 10% fixed;
 }
 .hero-unit{
     background: transparent;
